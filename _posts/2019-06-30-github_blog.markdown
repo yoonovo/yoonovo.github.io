@@ -32,24 +32,29 @@ gem install bundler jekyll
 <h3>3. Jekyll 블로그 만들기</h3>
 {% highlight Ruby  %}
 # Jekyll 블로그 생성
-jekyll new BlogName
+jekyll new 블로그이름
 {% endhighlight %}
 특정 폴더에 위의 명령어를 입력하면 블로그 이름의 폴더와 기본 하위 폴더들이 생성된다.
 지금은 Git hub의 블로그를 만드므로 블로그 이름은 <b>닉네임.github.io</b>로 만든다.
 
 <h3>4. Git hub와 연동하기</h3>
 {% highlight git  %}
-# Git 저장소 생성
+# Git 로컬 저장소 생성
 git init
 {% endhighlight %}
 
 {% highlight git  %}
-# Git 원격 저장소에 반영
+# Git 원격 저장소 연동
+git remote add origin 원격저장소Url
+{% endhighlight %}
+
+{% highlight git  %}
+# 커밋하여 Git 원격 저장소에 반영
 git add .
-git commit -m "create"
+git commit -m "커밋할내용"
 git push -u origin master
 {% endhighlight %}
-위의 명령어를 실행하면 원격 저장소와 연동되어 Git hub 블로그가 만들어 진다.
+위의 명령어를 실행하면 원격 저장소와 연동되어 Github 블로그가 만들어 진다.
 
 `https://닉네임.github.io`로 들어가면 블로그가 생성되어 있을 것이다.
 
