@@ -1,0 +1,221 @@
+---
+layout: post
+title:  "4. Git hub 블로그에 글쓰기 - Markdown2"
+date:   2019-07-03 00:30:29 +0900
+categories: jekyll update
+---
+
+이전글 - [2. Git hub 블로그에 글쓰기 - Markdown1](/jekyll/update/2019/07/01/post_02.html)
+
+## __마크다운문법__
+### 1. H1 - H6 태그
+{% highlight ruby %}
+<h1>Hi</h1>
+<h2>Hi</h2>
+<h3>Hi</h3>
+<h4>Hi</h4>
+<h5>Hi</h5>
+<h6>Hi</h6>
+{% endhighlight %}
+<h1>Hi</h1>
+<h2>Hi</h2>
+<h3>Hi</h3>
+<h4>Hi</h4>
+<h5>Hi</h5>
+<h6>Hi</h6>
+
+1-1) `=`와 `-`으로 간결하게
+{% highlight ruby %}
+제목
+====
+{% endhighlight %}
+제목
+====
+제목으로 강조하고 싶은 글자 아래 `=`를 넣으면 h1태그로 치환된다.
+`=`의 갯수는 상관없다. 하나만 넣어도 되고 여러개를 넣어도 h1태그로만 치환된다. 다만 글의 가독성을 위해 제목 길이에 맞추어 넣어 주는 쪽이 좋다.
+{% highlight ruby %}
+제목
+=
+
+제목
+==
+
+제목
+===============
+{% endhighlight %}
+제목
+=
+
+제목
+==
+
+제목
+===============
+
+{% highlight ruby %}
+부제목
+------
+{% endhighlight %}
+부제목
+-----
+`-`은 부제목으로 h2태그로 치환된다.
+
+1-2) `#`으로 간결하게
+{% highlight ruby %}
+# 제목
+## 제목
+### 제목
+#### 제목
+##### 제목
+###### 제목
+{% endhighlight %}
+# 제목
+## 제목
+### 제목
+#### 제목
+##### 제목
+###### 제목
+
+`#`은 h1태그, `##`은 h2태그, `###`은 h3태그로 치환되고 h6까지 쓸 수 있다.
+{% highlight ruby %}
+####### 제목
+{% endhighlight %}
+####### 제목
+
+`#`이 6개가 넘어가면은 치환되지 않는다.
+
+### 2. BlockQuote(블럭인용문자)
+{% highlight ruby %}
+> 인용
+{% endhighlight %}
+> 인용
+
+{% highlight ruby %}
+> 영화 '사도' ost
+>> 안녕하세요.
+>>> 반갑습니다.
+{% endhighlight %}
+> 영화 '사도' ost
+>> 꽃이 피고 지듯이
+>>> 조승우
+
+중첩해서 사용할 수 있다.
+
+{% highlight ruby %}
+> ## Kill This Love
+> <ul>
+> <li>BLACKPINK</li>
+> <li>2019.04.05</li>
+> </ul>
+{% endhighlight %}
+> ## Kill This Love
+>> <ul>
+>> <li>BLACKPINK</li>
+>> <li>2019.04.05</li>
+>> </ul>
+
+다른 마크다운 문법을 쓸 수 있다.
+
+### 3. 목록
+3-1) 번호 목록
+{% highlight ruby %}
+1. One
+2. Two
+3. Three
+{% endhighlight %}
+1. One
+2. Two
+3. Three
+
+숫자와 점을 사용하여 번호목록을 만들수 있다.
+이 목록은 번호를 뒤죽박죽 섞어도 내림차순으로 출력된다.
+
+{% highlight ruby %}
+2. Two
+3. Three
+1. One
+{% endhighlight %}
+2. Two
+3. Three
+1. One
+
+3-2) 글머리 기호
+{% highlight ruby %}
+* First
+  * Second
+  * Second
+    * Third
+    * Third
+* First
+* First
+{% endhighlight %}
+* First
+  * Second
+  * Second
+    * Third
+    * Third
+* First
+* First
+
+기호와 띄어쓰기를 사용하여 글머리 기호를 넣은 목록을 만들 수 있다.
+여러 기호를 섞어도 결과는 같다.
+
+{% highlight ruby %}
+* First
+  - Second
+  - Second
+    + Third
+    + Third
+* First
+* First
+{% endhighlight %}
+* First
+  - Second
+  - Second
+    + Third
+    + Third
+* First
+* First
+
+### 4. 구분선
+{% highlight ruby %}
+제목
+<hr>
+내용1
+* * *
+내용2
+- - -
+내용3
+{% endhighlight %}
+제목
+<hr>
+내용1
+* * *
+내용2
+- - -
+내용3
+
+`<hr>`, `* * *`, `- - -` 모두 구분선으로 치환된다.
+
+### 5. 강조
+5-1) 기울기
+{% highlight ruby %}
+*Text1*
+_Text2_
+{% endhighlight %}
+*Text1*
+_Text2_
+
+5-2) 글자 굵게
+{% highlight ruby %}
+**Text1**
+__Text2__
+{% endhighlight %}
+**Text1**
+__Text2__
+
+5-3) 밑줄
+{% highlight ruby %}
+~~Text~~
+{% endhighlight %}
+~~Text~~

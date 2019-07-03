@@ -1,0 +1,50 @@
+---
+layout: post
+title:  "5. Git hub 블로그에 글쓰기 - 문서내 이동"
+date:   2019-07-03 12:30:29 +0900
+categories: jekyll update
+---
+
+이전글 - [4. Git hub 블로그에 글쓰기 - Markdown2](/jekyll/update/2019/07/03/post_04.html)
+
+# 처음
+
+문서들을 보면 글의 목차나 목록이 있고 목록을 클릭 시 해당 글 위치로 이동해주는 문서 내 링크가 있다.
+마크다운에서 이러한 이동 링크를 생성하려면 이동할 위치의 텍스트를 `# 제목`으로 선언해 h1태그로 치환되게 한다.  
+그리고 목록에는 `[링크 걸 텍스트](#제목)` 형식으로 작성해야한다.  
+`(#제목)`에서 제목에는 소문자만을 쓸수 있고 띄여쓰기는 `-`으로 바꿔 적어줘야 한다.
+
+{% highlight Javascript %}
+# 목차
+- [강아지](#강아지)  
+- [여수](#여수)  
+- [태국](#태국)
+
+# 강아지
+![image]({{ "/assets/arong2.jpg" }})
+![image]({{ "/assets/arong3.jpg" }})
+# 여수
+![image]({{ "/assets/img1.jpg" }})
+![image]({{ "/assets/img2.jpg" }})
+# 태국
+![image]({{ "/assets/tai1.jpg" }})
+![image]({{ "/assets/tai4.jpg" }})
+{% endhighlight %}
+
+# 목차
+- [강아지](#강아지)  
+- [여수](#여수)  
+- [태국](#태국)
+
+# 강아지
+[처음으로](#처음) 
+![image]({{ "/assets/arong2.jpg" }})
+![image]({{ "/assets/arong3.jpg" }})
+# 여수
+[처음으로](#처음) 
+![image]({{ "/assets/img1.jpg" }})
+![image]({{ "/assets/img2.jpg" }})
+# 태국
+[처음으로](#처음) 
+![image]({{ "/assets/tai1.jpg" }})
+![image]({{ "/assets/tai4.jpg" }})
