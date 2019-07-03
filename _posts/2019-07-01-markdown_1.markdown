@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  "2. Git hub 블로그에 글쓰기"
+title:  "2. Git hub 블로그에 글쓰기 - Markdown1"
 date:   2019-07-01 00:30:29 +0900
 categories: jekyll update
 ---
 
-Jekyll로 만든 로컬저장소에 게시물을 올리려면 폴더 중 `/_posts` 폴더를 찾는다.
+Jekyll로 만든 로컬저장소에 게시물을 올리려면 최상위 폴더 중 `/_posts` 폴더를 찾는다.
 ![image]({{ "/assets/jekyll1.png" }})
 
-`/_posts`폴더 안에 `연도-월-일-파일이름.markdown` 형식으로 파일을 추가한다.
+`/_posts`폴더 안에 `연도-월-일-파일이름.markdown` 형식으로 새로운 파일을 만든다.
 
 {% highlight markdown %}
 ---
@@ -21,9 +21,11 @@ categories: jekyll update
 파일을 만들면 먼저 위의 형식처럼 `layout, title`등을 설정해 준다.
 `title`은 글의 제목, `date`는 글을 등록한 날짜이다.
 
-그리고 아래에 내용을 적는다.
+그리고 아래에 내용을 적는다. Git hub는 마크다운 문법으로 게시물을 작성해야한다
 <br>
-<h4>1. Html Tag 사용</h4>
+
+## __마크다운문법__
+### 1. Html 사용
 {% highlight Script %}
 <h3>hello world</h3>
 <p>hello world</p>
@@ -41,9 +43,9 @@ categories: jekyll update
   <li>one</li>
   <li>two</li>
   <li>three</li>
-</ul>
+</ul> 
 
-<h4>2. 인라인 CSS 사용</h4>
+### 2. 인라인 CSS 사용
 {% highlight Script %}
 <p style="color:red;">hello world</p>
 <p style="text-decoration:underline;">hello world</p>
@@ -53,7 +55,7 @@ categories: jekyll update
 <p style="text-decoration:underline;">hello world</p>
 <p style="font-weight:bold;">hello world</p>
 
-<h4>3. highlight 사용</h4>
+### 3. highlight 사용
 <h5>3-1) 부분 highlight</h5>
 {% highlight ruby %}
 `Hi~` Nice to meet you!
@@ -73,7 +75,7 @@ highlight뒤에 ruby부분에는 Jekyll에서 지원하는 언어를 넣어준�
 <br>
 지원하는 언어는 "[http://pygments.org/languages/][site_address1]" 사이트에 나와있다.
 
-<h4>4. 링크걸기</h4>
+### 4. 링크걸기
 {% highlight markdown %}
 [YoonOVO_1](https://yoonovo.github.io/)
 {% endhighlight %}
@@ -85,7 +87,7 @@ highlight뒤에 ruby부분에는 Jekyll에서 지원하는 언어를 넣어준�
 {% endhighlight %}
 [YoonOVO_2][site_address]
 
-<h4>5. 이미지 첨부</h4>
+### 5. 이미지 첨부
 최상위 폴더로 `./assets`라는 이미지를 넣을 폴더를 만든다. 원하는 이미지를  `./assets`에 저장한다.
 {% highlight markdown %}
 [image](/assets/1.jpg)
