@@ -6,6 +6,7 @@ categories: jekyll update
 ---
 
 [문제 보러가기][site_address]
+
 {% highlight Javascript %}
 let num = parseInt(prompt('숫자를 입력해 주세요.'));
 
