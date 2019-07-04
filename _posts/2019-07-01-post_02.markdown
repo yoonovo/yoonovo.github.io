@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "2. Git hub 블로그에 글쓰기 - Markdown1"
+title:  "Git hub 블로그에 글쓰기 - Markdown1"
 date:   2019-07-01 00:30:29 +0900
-categories: jekyll update
+categories: github jekyll
 ---
 
 Jekyll로 만든 로컬저장소에 게시물을 올리려면 최상위 폴더 중 `/_posts` 폴더를 찾는다.

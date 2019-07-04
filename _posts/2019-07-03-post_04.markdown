@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "4. Git hub 블로그에 글쓰기 - Markdown2"
+title:  "Git hub 블로그에 글쓰기 - Markdown2"
 date:   2019-07-03 00:30:29 +0900
-categories: jekyll update
+categories: github jekyll
 ---
 
 이전글 - [2. Git hub 블로그에 글쓰기 - Markdown1](/jekyll/update/2019/07/01/post_02.html)

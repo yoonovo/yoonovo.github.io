@@ -1,0 +1,116 @@
+---
+layout: post
+title:  "Generator 함수"
+date:   2019-07-04 11:17:29 +0900
+categories: javascript markup
+---
+
+# __제너레이터(Generator) 함수__
+
+Javascript에서는 동기와 비동기가 있다. 
+동기는 호출과 실행을 같이 하고 비동기는 호출과 실행을 같이 하지 않는다.
+예를 들어 console.log('hello')는 호출하자마자 스스로 'hello'를 출력한다.
+하지만 hello()는 호출을 하지만 function hello(){ console.log('hello'); }에서 'hello'를 출력한다.
+
+제너레이터 함수란 이런 비동기 함수를 좀 더 유용하게 사용할 수 있게 하는 함수이다.
+
+간단한 예제와 함께 알아보자
+
+{% highlight javascript %}
+function* call() {
+  console.log('첫번째');
+  yield 1; // 첫번째 호출                 
+  console.log('두번째');
+  yield 2; // 두번째 호출                       
+  console.log('세번째'); // 세번째 호출 
+}
+
+const result = call();
+
+result.next();
+result.next();
+result.next();
+{% endhighlight %}
+
+> 첫번째  
+> 두번째  
+> 세번째 
+
+제너레이터 함수가 일반 함수와 다른 점은 호출 됐을 때 코드를 한번에 실행하지 않고 일시정지 했다가 필요한 시점에서 이어서 시작 할 수 있다는 점이다. 
+`yield`와 `.next()`로 동작하는데 `.next()`로 함수를 호출하면 코드에서 `yield`을 만날 때 실행을 멈추는 방식으로 동작한다.
+한 번 호출하면 첫번째 `yield`까지 실행되고 멈추었다가 두번째 호출되면 첫번째에서 멈춘 곳 부터 두번째 `yield`을 만날 때까지 실행된다.
+또 `.next()`로 호출하면 호출된 곳에서 호출된 횟수를 저장하는데 위의 result처럼 변수에 담아 호출하지 않는다면 몇 번을 호출해도 '첫번째'밖에 나오지 않는다.   
+
+{% highlight javascript %}
+function* call() {
+  console.log('첫번째');
+  yield 1; // 첫번째 호출                 
+  console.log('두번째');
+  yield 2; // 두번째 호출                       
+  console.log('세번째'); // 세번째 호출 
+}
+
+call().next();
+call().next();
+call().next();
+{% endhighlight %}
+
+> 첫번째  
+> 첫번째  
+> 첫번째
+
+또 제너레이터 함수는 `.next()`로 호출하면 value, done 프로퍼티를 갖고있는 객체를 반환한다.  
+value는 `yield`에 할당한 값이고, done은 남은 코드 안에 `yield`이 있다면 false 없다면 true가 할당된다.
+
+{% highlight javascript %}
+function* call() {
+  console.log('첫번째');
+  yield 1;                 
+  console.log('두번째');
+  yield 2;                     
+  console.log('세번째');                   
+}
+
+const result = call();
+
+console.log(result.next()); // {value: 1, done: false} 
+console.log(result.next()); // {value: 2, done: false} 
+console.log(result.next()); // {value: undefined, done: true}
+{% endhighlight %}
+
+> 첫번째  
+> {value: 1, done: false}  
+> 두번째  
+> {value: 2, done: false}  
+> 세번째  
+> {value: undefined, done: true}
+
+seTimeout을 이용한 예제를 살펴보자
+
+{% highlight javascript %}
+setTimeout(()=>{console.log('30')}, 3000);
+setTimeout(()=>{console.log('10')}, 1000);
+setTimeout(()=>{console.log('20')}, 2000);
+{% endhighlight %}
+
+> 10  
+> 20  
+> 30
+
+위의 예제를 보면 호출한 순서로 출력되는건 30,10,20 이어야 한다. 그러나 출력된 결과를 보면 10,20,30 순으로 출력된다. 이 예제에 제너레이터를 적용해 동기식으로 바꿔보겠다.
+
+{% highlight javascript %}
+function* setime() {
+    yield setTimeout(()=>{console.log('30'); gen.next();}, 3000);
+    yield setTimeout(()=>{console.log('10'); gen.next();}, 1000); 
+	setTimeout(()=>{console.log('20');}, 2000);
+}
+
+const gen = setime();
+
+gen.next();
+{% endhighlight %}
+
+> 30  
+> 10  
+> 20
