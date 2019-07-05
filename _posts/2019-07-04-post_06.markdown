@@ -2,7 +2,7 @@
 layout: post
 title:  "Generator 함수"
 date:   2019-07-04 11:17:29 +0900
-categories: javascript markup
+categories: javascript
 ---
 
 # __제너레이터(Generator) 함수__
