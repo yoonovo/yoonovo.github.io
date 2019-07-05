@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "hackerrank - Time Conversion"
+date:   2019-07-05 15:03:00 +0900
+categories: javascript
+---
+
+[문제 보러가기][site_address]
+
+{% highlight Javascript %}
+const arr = s.split(':')
+
+if (arr[2].substring(2, 4) == 'PM' && arr[0] < 12) {
+    arr[0] = Number(arr[0]) + 12 === 24 ? '00' : Number(arr[0]) + 12;
+}
+
+if (arr[0] == 12 && arr[2].substring(2, 4) == 'AM') {
+    arr[0] = '00';
+} 
+
+arr[2] = arr[2].substring(0, 2);
+
+return arr.join(':');
+{% endhighlight %}
+
+[site_address]: https://www.hackerrank.com/challenges/time-conversion/problem
