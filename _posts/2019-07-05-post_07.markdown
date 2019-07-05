@@ -2,12 +2,14 @@
 layout: post
 title:  "hackerrank - Time Conversion"
 date:   2019-07-05 15:03:00 +0900
-categories: javascript
+categories: hackerrank
 ---
 
 [문제 보러가기][site_address]
 
 {% highlight Javascript %}
+function timeConversion(s) {
+
 const arr = s.split(':')
 
 if (arr[2].substring(2, 4) == 'PM' && arr[0] < 12) {
@@ -21,6 +23,8 @@ if (arr[0] == 12 && arr[2].substring(2, 4) == 'AM') {
 arr[2] = arr[2].substring(0, 2);
 
 return arr.join(':');
+
+}
 {% endhighlight %}
 
 [site_address]: https://www.hackerrank.com/challenges/time-conversion/problem
