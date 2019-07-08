@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Array Method(배열 메소드)"
+date:   2019-07-08 17:00:00 +0900
+categories: javascript
+---
+
+# __Array Method(배열 메소드)__
+## Filter
+## ForEach
+## map
+## reduce
