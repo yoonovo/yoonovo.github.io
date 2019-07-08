@@ -5,7 +5,7 @@ date:   2019-07-03 00:30:29 +0900
 categories: github jekyll
 ---
 
-이전글 - [2. Git hub 블로그에 글쓰기 - Markdown1](/github/jekyll/2019/07/01/post_02.html)
+이전글 - [2. Git hub 블로그에 글쓰기 - Markdown1](/github/jekyll/2019/07/01/jekyll_02.html)
 
 ## __마크다운문법__
 ### 1. H1 - H6 태그
