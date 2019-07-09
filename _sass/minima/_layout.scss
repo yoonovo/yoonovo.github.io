@@ -235,6 +235,15 @@
 .post-link {
   display: block;
   @include relative-font-size(1.5);
+  color: black;
+  &:visited {
+    text-decoration: none;
+    color: black;
+  }
+  &:hover {
+    text-decoration: none;
+    color: orange;
+  }
 }
 
 
