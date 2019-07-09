@@ -13,7 +13,7 @@ categories: javascript
 # __Array Method(배열 메소드)__
 
 - [Filter](#filter)
-- [ForEach](#forEach)
+- [ForEach](#foreach)
 - [Map](#map)
 - [Reduce](#reduce)
 
@@ -59,15 +59,16 @@ console.log(result);
 또 아래 예제 같은 방식으로도 사용할 수 있다.
 
 {% highlight javascript %}
-var arr = [    
+const arr = [    
   {"name":"Jack", "job": "student"},    
   {"name":"Mery", "job": "Nurse"},    
   {"name":"Emma", "job": "student"},    
   {"name":"Danny", "job": "office worker"}
 ];    
-var result = arr.filter(val => {    
+let result = arr.filter(val => {    
   return val.job === "student";
 });  
+
 console.log(result);
 {% endhighlight %}
 
