@@ -71,7 +71,7 @@ let result = arr.filter(val => {
 
 console.log(result);
 {% endhighlight %}
-
+ s
 > 0: {name: "Jack", job: "student"}  
 > 1: {name: "Emma", job: "student"}
 
