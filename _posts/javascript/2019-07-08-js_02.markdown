@@ -87,7 +87,7 @@ console.log(result);
 
 {% highlight javascript %}
 const arr = ['Mon', 'Tue', 'Wed', 'thu', 'Fri', 'Sat', 'Sun'];
-{% endhighlight %}
+{% endhighlight %} 
 
 요일이 담겨있는 배열이 있다. 요일을 하나씩 출력하려 할 때 어떻게 코드를 짜야 할까?  
 간단한 방법으로는 For문을 사용하여 만드는 것이다.
