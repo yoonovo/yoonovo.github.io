@@ -1,8 +1,40 @@
 ---
 layout: post
-title:  "SCSS 문법"
+title:  "SCSS 유용하게 쓰는 법"
 date:   2019-07-29 11:00:00 +0900
 categories: css
 ---
 
-#
+## Sass와 SCSS 차이
+SCSS는 Sass 버전3에서 CSS와 완전히 호환되도록 새로운 만든 css 전처리기(css Preprocessor)로 가장 큰 차이는 `{}`와 `;`의 유무이다.
+
+{% highlight sass %}
+/*Sass*/
+.wrap 
+    width: 100%
+    height: 500px
+    li
+        color: red
+    &:hover 
+        width: 50%
+{% endhighlight %}
+{% highlight SCSS %}
+/*SCSS*/
+.wrap {
+    width: 100%;
+    height: 500px;
+    li {
+        color: red;
+    }
+    &:hover {
+        width: 50%;
+    }
+}
+{% endhighlight %}
+
+## SCSS 사용
+
+
+#### 참조
+ - [Sass(SCSS) 완전 정복!](https://heropy.blog/2018/01/31/sass/)  
+ - [Toast UI - HTML/CSS/Sass](https://ui.toast.com/fe-guide/ko_HTMLCSS)
