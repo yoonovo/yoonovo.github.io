@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "hackerrank - Time Conversion"
+title:  "[문제풀이]hackerrank - Time Conversion"
 date:   2019-07-05 15:03:00 +0900
 categories: hackerrank
 ---
