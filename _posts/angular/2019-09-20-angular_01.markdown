@@ -1,0 +1,174 @@
+---
+layout: post
+title:  "Angular i18n"
+date:   2019-09-20 10:00:00 +0900
+categories: angular
+---
+
+# Angular i18n
+
+- i18n의 뜻은 Internationalization(국제화)의 첫 글자 i와 마지막 글자 n 사이에 18 글자가 있어서 i18n 이다. 
+- Angular에서 지원하는  다국화 시스템을 구현할 환경을 만들어주는 역활을 한다.
+- 기본적으로 지원하는 i18n말고도 i18next 같은 여러 라이브러리가 있다.
+
+# 개발환경
+
+- Visual Studio Code
+- Angular CLI: 8.3.5
+ (※ 버전 보다 낮으면 오류가 날 수 있다.)
+ 
+ # 설정
+
+- i18n을 쓰기 위해서는 몇 가지 설정을 해주어야한다.
+## package.json
+먼저 package.json의 "scripts"의 부분 안에 아래의 명령어를 추가해준다.
+
+```    
+{
+"scripts": {
+    "xi18n": "ng xi18n",
+    "build:en": "ng build --configuration=en",
+    "start:en": "ng serve --configuration=en"
+  }
+}
+```
+
+##  angular.json
+그 다음으로 angular.json에 아래의 부분을 추가해 주면 됩니다.
+"projects" > "(프로젝트이름)" > "architect" > "build" > "configurations" 
+``` 
+"en": {
+  "aot": true,
+  "outputPath": "dist/i18n-en/", 
+  "i18nFile": "src/locale/messages.en.xlf",
+  "i18nFormat": "xlf",
+  "i18nLocale": "en",
+  "i18nMissingTranslation": "error"
+}
+```
+- outputPath: Build할 때 dist 폴더 안에 생성할 파일 이름
+- i18nFile: Build할 때 번역 파일의 경로
+- i18nFormat: Build할 때 번역 파일의 형식
+- i18nLocale: 로캘 ID
+- i18nMissingTranslation: 번역 파일이 누락되면 에러가 발생
+
+"projects" > "(프로젝트이름)" > "architect" > "serve" > "configurations"
+```    
+"en": {
+  "browserTarget": "i18n-project:build:en"
+}
+```
+###  예외
+만약 angular.json대신 .angular-cli.json가 있다면 package.json파일 안에 아래와 같이만 설정해주면 된다.
+
+``` 
+{
+"scripts": {
+    "xi18n": "ng xi18n --outFile messages.en.xlf --outputPath src/locale --locale en",
+    "start:en": "ng serve --aot --i18nFile src/locale/messages.en.xlf --locale en",
+    "build:en": "npm run build -- --outputPath dist/en -bh /en"
+  }
+}
+```
+# 사용법
+
+1. 번역할 HTML 파일을 만든다.
+``` javascript
+<div>
+  <h1>사과</h1>
+  <h3>바나나</h3>
+  <p>키위</p>
+</div>
+```
+2. 번역해야 할 글자가 들어 있는 HTML 태그 안에  `i18n`을 넣어준다.
+``` javascript
+<div>
+  <h1 i18n>사과</h1>
+  <h3 i18n>바나나</h3>
+  <p i18n>키위</p>
+</div>
+```
+(※ 비어있는 태그에  `i18n`을 넣는다면 오류가 발생함으로 주의)
+
+3. `npm run xi18n`을 입력해준다. 
+컴포넌트 전체를 돌면서 `i18n`이 들어간 태그들을 번역본 파일로 생성해준다.
+
+``` 
+npm run xi18n
+```
+
+4. 위의 명령어가 정삭적으로 동작 했다면 최상위 폴더에 `message.xlf` 파일이 생성되어 있을 것이다. 
+
+(※ 만약 수정 또는 추가 때문에 HTML 파일을 갱신해도 번역본은 자동으로 갱신이 안되므로 다시 `npm run xi18n`으로 갱신 해주어야한다. 이때 갱신은 기존 있던 파일에 추가되거나 수정되는게 아니라 새로 만들어져 덮어쓰기 되니 **꼭 복사본을 만들어 두길 권장**)
+``` 
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="f2a39f6cf53109df6d0d08d2327b09637bb4fce8" datatype="html">
+        <source>사과</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9ef37885aa82fbf86568486c219b17ee7ea65829" datatype="html">
+        <source>바나나</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fcb65700b71d9e426567cf7fa3014906078ecf38" datatype="html">
+        <source>키위</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
+```
+5. 위에서 설정할 때 파일 경로를 **src/locale/messages.en.xlf**으로 적었기에 locale파일을 생성하고 `message.xlf`파일을 복사해 locale파일 안에  `messages.en.xlf`으로 이름을 변경해 넣어준다.
+
+
+6. messages.en.xlf의 `<source>`부분 아래서 번역된 내용이 들어간 `<target>`를 넣어준다. 
+(※ 자동번역이 아니기에 따로 번역본이 있어야됨)
+```
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="f2a39f6cf53109df6d0d08d2327b09637bb4fce8" datatype="html">
+        <source>사과</source>
+        <target>Apple</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9ef37885aa82fbf86568486c219b17ee7ea65829" datatype="html">
+        <source>바나나</source>
+        <target>Banana</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fcb65700b71d9e426567cf7fa3014906078ecf38" datatype="html">
+        <source>키위</source>
+        <target>kiwi fruit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
+```
+6. 마지막으로 `npm run start:en`을 입력해준다.
+```
+npm run start:en
+```
