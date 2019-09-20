@@ -17,9 +17,10 @@ categories: angular
 - Angular CLI: 8.3.5
  (※ 버전 보다 낮으면 오류가 날 수 있다.)
  
- # 설정
+## 설정
 
-- i18n을 쓰기 위해서는 몇 가지 설정을 해주어야한다.
+- i18n을 쓰기 위해서는 몇 가지 설정을 해주어야한다. 
+
 ## package.json
 먼저 package.json의 "scripts"의 부분 안에 아래의 명령어를 추가해준다.
 
@@ -32,6 +33,8 @@ categories: angular
   }
 }
 {% endhighlight %}
+
+ TIP) "xi18n": "ng xi18n --outputPath src/locale"처럼 파일을 생성할 경로를 설정할수 있다.
 
 ##  angular.json
 그 다음으로 angular.json에 아래의 부분을 추가해 주면 됩니다.
@@ -72,7 +75,7 @@ categories: angular
 {% endhighlight %}
 # 사용법
 
-1. 번역할 HTML 파일을 만든다.
+- **번역할 HTML 파일을 만든다.**
 {% highlight html %}
 <div>
   <h1>사과</h1>
@@ -80,7 +83,8 @@ categories: angular
   <p>키위</p>
 </div>
 {% endhighlight %}
-2. 번역해야 할 글자가 들어 있는 HTML 태그 안에  `i18n`을 넣어준다.
+
+- **번역해야 할 글자가 들어 있는 HTML 태그 안에  `i18n`을 넣어준다.**
 {% highlight html %}
 <div>
   <h1 i18n>사과</h1>
@@ -90,14 +94,14 @@ categories: angular
 {% endhighlight %}
 (※ 비어있는 태그에  `i18n`을 넣는다면 오류가 발생함으로 주의)
 
-3. `npm run xi18n`을 입력해준다. 
+- **`npm run xi18n`을 입력해준다.**
 컴포넌트 전체를 돌면서 `i18n`이 들어간 태그들을 번역본 파일로 생성해준다.
 
 {% highlight php %}
 npm run xi18n
 {% endhighlight %}
 
-4. 위의 명령어가 정삭적으로 동작 했다면 최상위 폴더에 `message.xlf` 파일이 생성되어 있을 것이다. 
+- **위의 명령어가 정삭적으로 동작 했다면 최상위 폴더에 `message.xlf` 파일이 생성되어 있을 것이다.** 
 
 (※ 만약 수정 또는 추가 때문에 HTML 파일을 갱신해도 번역본은 자동으로 갱신이 안되므로 다시 `npm run xi18n`으로 갱신 해주어야한다. 이때 갱신은 기존 있던 파일에 추가되거나 수정되는게 아니라 새로 만들어져 덮어쓰기 되니 **꼭 복사본을 만들어 두길 권장**)
 {% highlight xml %}
@@ -130,10 +134,11 @@ npm run xi18n
   </file>
 </xliff>
 {% endhighlight %}
-5. 위에서 설정할 때 파일 경로를 **src/locale/messages.en.xlf**으로 적었기에 locale파일을 생성하고 `message.xlf`파일을 복사해 locale파일 안에  `messages.en.xlf`으로 이름을 변경해 넣어준다.
+
+- **위에서 설정할 때 파일 경로를 **src/locale/messages.en.xlf**으로 적었기에 locale파일을 생성하고 `message.xlf`파일을 복사해 locale파일 안에  `messages.en.xlf`으로 이름을 변경해 넣어준다.**
 
 
-6. messages.en.xlf의 `<source>`부분 아래서 번역된 내용이 들어간 `<target>`를 넣어준다. 
+- **messages.en.xlf의 `<source>`부분 아래서 번역된 내용이 들어간 `<target>`를 넣어준다.**
 (※ 자동번역이 아니기에 따로 번역본이 있어야됨)
 {% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -168,7 +173,21 @@ npm run xi18n
   </file>
 </xliff>
 {% endhighlight %}
-6. 마지막으로 `npm run start:en`을 입력해준다.
+
+- **마지막으로 `npm run start:en`을 입력해준다.**
 {% highlight php %}
 npm run start:en
 {% endhighlight %}
+
+## 결과 
+**npm run start**
+
+> 사과  
+> 바나나  
+> 키위
+
+**npm run start:en**
+
+> Apple  
+> Banana  
+> kiwi fruit
