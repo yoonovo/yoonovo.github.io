@@ -5,8 +5,6 @@ date:   2019-07-03 12:30:29 +0900
 categories: github jekyll
 ---
 
-이전글 - [4. Git hub 블로그에 글쓰기 - Markdown2](/github/jekyll/2019/07/03/jekyll_03.html)
-
 # 문서내 이동
 
 문서들을 보면 글의 목차나 목록이 있고 목록을 클릭 시 해당 글 위치로 이동해주는 문서 내 링크가 있다.
