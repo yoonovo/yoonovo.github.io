@@ -2,12 +2,20 @@
  * Site header
  */
 .banner {
-  width: 100%;
-  height: 500px;
-  background: url('/assets/tai2.jpg') 50%35% no-repeat;
+  // width: 100%;
+  // height: 500px;
+  // background: url('/assets/tai2.jpg') 50%35% no-repeat;
+  // background-size: cover;
+  // margin-bottom: $spacing-unit;
+  // margin-top: -$spacing-unit * 1.865;
+
+  width: 30%;
+  height: 980px;
+  background: url(/assets/tai2.jpg) 50% 50% no-repeat;
   background-size: cover;
-  margin-bottom: $spacing-unit;
-  margin-top: -$spacing-unit * 1.865;
+  margin-bottom: 30px;
+  margin-top: -55.95px;
+  position: fixed;
 }
 .site-header {
   // border-top: 5px solid $grey-color-dark;
@@ -34,12 +42,12 @@
   letter-spacing: -1px;
   margin-bottom: 0;
   float: left;
-  color: #fff;
+  color: #000;
   font-family: $title-font-family;
 
   &,
   &:visited {
-    color: $background-color;
+    color: #000;
   }
   &:hover {
     text-decoration: none;
@@ -59,7 +67,7 @@
   }
 
   .page-link {
-    color: $background-color;
+    color: #000;
     line-height: $base-line-height;
 
     // Gaps between nav items, but not on the last one
@@ -67,7 +75,7 @@
       margin-right: 30px;
     }
     &:hover {
-      border-bottom: 3px solid #000;
+      font-weight: bold;
       text-decoration: none;
     }
   }
@@ -205,6 +213,8 @@
   // padding: $spacing-unit 0;
   margin-bottom: $spacing-unit;
   flex: 1;
+  display: flex;
+  width: 100%;
 }
 
 .page-heading {

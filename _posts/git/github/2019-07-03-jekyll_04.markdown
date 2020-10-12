@@ -2,7 +2,7 @@
 layout: post
 title:  "Git hub 블로그에 글쓰기 - 문서내 이동"
 date:   2019-07-03 12:30:29 +0900
-categories: github jekyll
+categories: github
 ---
 
 # 문서내 이동
