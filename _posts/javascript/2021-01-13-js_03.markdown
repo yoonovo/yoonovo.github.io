@@ -1,0 +1,52 @@
+---
+layout: post
+title: "ForEach() 힘수"
+date: 2021-01-13 17:00:00 +0900
+categories: javascript
+---
+<style>
+    .clr1 {color: tomato;}
+    .clr2 {color: orange;}
+</style>
+
+## ForEach
+<span class="clr1">foreach 함수</span>는 for문처럼 끝을 지정해 주지않아도 배열을 끝까지 순회해주는 함수입니다.
+
+{% highlight javascript %}
+배열.forEach(콜백함수(요소, 인덱스, 배열객체));
+{% endhighlight %}
+
+사용법은 위의 <span class="clr1">filter 함수</span>와 같이 콜백함수를 넣고 매캐변수로 요소, 인덱스, 배열객체를 넣을 수 있다.  
+예제를 보며 알아보자
+
+{% highlight javascript %}
+const arr = ['Mon', 'Tue', 'Wed', 'thu', 'Fri', 'Sat', 'Sun'];
+{% endhighlight %} 
+
+요일이 담겨있는 배열이 있다. 요일을 하나씩 출력하려 할 때 어떻게 코드를 짜야 할까?  
+간단한 방법으로는 For문을 사용하여 만드는 것이다.
+
+{% highlight javascript %}
+for (let i = 0 ; i < arr.length ; i++) {
+    console.log(arr[i]);
+}
+{% endhighlight %}
+
+위처럼 배열의 length로 마지막 인덱스 값을 구하고 i를 인덱스 값으로 하면 배열을 순서대로 출력할 수 있다.  
+위의 코드를 ForEach를 적용해 바꿔보겠다.
+
+{% highlight javascript %}
+arr.forEach((val)=>{
+    console.log(val);
+});
+{% endhighlight %}
+
+ForEach를 사용하면 배열의 마지막 인덱스 값을 구하거나 인덱스 값으로 배열을 순회하지 않아도 된다. ForEach 특성상 알아서 배열을 순회하고 매개변수에 요소가 있기 때문이다.
+
+> Mon  
+> Tue  
+> Wed  
+> thu  
+> Fri  
+> Sat  
+> Sun
