@@ -1,0 +1,73 @@
+---
+layout: post
+title: "Reduce() 함수"
+date: 2021-02-21 14:00:00 +0900
+categories: javascript
+---
+<style>
+    .clr1 {color: tomato;}
+    .clr2 {color: orange;}
+</style>
+
+## Reduce
+<span class="clr1">Reduce 함수</span>는 배열을 순회하며 반환된 결과값을 누적시켜 하나의 결과 값을 반환해주는 함수이다. 
+
+{% highlight javascript %}
+const result = 배열.reduce(콜백함수(누적된 값, 요소, 인덱스, 배열객체), 누적된 값의 결과값);
+{% endhighlight %}
+
+예제를 보며 알아보자  
+아래는 숫자 배열 `arr`안의 요소들을 전부 더한 값을 출력하는 코드를 for문과 reduce로 작성한 것이다.
+
+{% highlight javascript %}
+const arr = [1,2,3,4,5];
+
+// For
+let totFor = 0;
+for(let i=0; i<arr.length; i++){
+	totFor += arr[i];
+}
+console.log('totFor: ', totFor); // 15
+
+// Reduce
+let totRdc = arr.reduce((tot, val)=>{
+    return tot + val;
+}, 0);
+console.log('totRdc: ', totRdc); // 15
+{% endhighlight %}
+
+for문을 사용하여 작성하려면 값을 중첩시킬 변수를 선언하고 length로 arr의 인덱스의 길이를 가져와야한다. 그리고 for문을 돌면서 arr[i]형태로 가져온 값을 선언한 변수에 중첩시킨다.  
+reduce를 사용하면 선언한 변수 안에 reduce를 넣고 누적 값을 가져오는 매개변수 `tot`에 요소 `val`를 더하는 코드를 반환하는 것으로 for문과 똑값은 결과 값을 가질수 있다.
+
+또 다른 예제를 살펴보면 요소에 공통된 작업을 할때도 이용할 수 있다.
+{% highlight javascript %}
+const arr = ['김**', '홍@@', '이oo'];
+
+let totRdc = arr.reduce((tot, val, idx)=>{
+    tot[idx] = '기호'+(idx+1)+'번 '+val+'입니다.';
+    return tot;
+}, []);
+console.log('totRdc: ', totRdc[1]); // 기호2번 홍@@입니다. 
+{% endhighlight %}
+
+이중 배열에서도 사용할 수 있다. 아래 arr에서 checked에 `true`한 사람의 이름만을 배열로 묶어보자.
+{% highlight javascript %}
+const arr = [
+    { name: '김**', checked: true },
+    { name: '홍@@', checked: false },
+    { name: '이oo', checked: true },
+];
+
+let totRdc = arr.reduce((tot, val)=>{
+    if(val.checked === true){
+        tot.push(val.name);
+    }
+    return tot;
+}, []);
+console.log('totRdc: ', totRdc[1]); // ["김**", "이oo"]
+{% endhighlight %}
+
+
+### 비슷한 함수 함께보기
+- [ForEach() 함수]({% link _posts/javascript/2021-01-13-js_03.markdown %})
+- [Fillter() 함수]({% link _posts/javascript/2019-07-08-js_02.markdown %})
