@@ -2,7 +2,7 @@
 layout: post
 title:  "Git hub 블로그에 글쓰기 - Markdown2"
 date:   2019-07-03 00:30:29 +0900
-categories: github
+categories: Github
 ---
 
 ## __마크다운문법__

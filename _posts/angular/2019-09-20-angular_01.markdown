@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Angular i18n"
+title:  "Angular 영문화 - i18n"
 date:   2019-09-20 10:00:00 +0900
-categories: angular
+categories: Angular
 ---
 
 # Angular i18n

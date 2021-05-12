@@ -1,6 +1,6 @@
 ---
 layout: default
-title: category
+title: CATEGORY
 ---
 <ul class="category">
   {% for category in site.categories %}

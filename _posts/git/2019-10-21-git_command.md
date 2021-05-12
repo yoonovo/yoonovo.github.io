@@ -2,7 +2,7 @@
 layout: post
 title:  "Git 명령어"
 date:   2019-10-21 11:15:29 +0900
-categories: git
+categories: Git
 ---
 
 - __Git init__ : 새로운 프로젝트를 만들었을때 새로운 git 저장소를 만들어준다.

@@ -2,7 +2,7 @@
 layout: post
 title:  "[문제풀이]hackerrank - Time Conversion"
 date:   2019-07-05 15:03:00 +0900
-categories: hackerrank
+categories: Hackerrank
 ---
 
 [문제 보러가기][site_address]
