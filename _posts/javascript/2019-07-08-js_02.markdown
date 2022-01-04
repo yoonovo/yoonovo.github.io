@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Filter() 함수"
-date:   2019-07-08 17:00:00 +0900
+title: "Filter() 함수"
+date: 2019-07-08 17:00:00 +0900
 categories: Javascript
 ---
 <style>
