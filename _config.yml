@@ -20,6 +20,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: null
 github_username:  yoonovo
+notion_url: https://spotty-jitterbug-ca4.notion.site/Huisu-Yoon-ec2c407ef4dd46a1a178526485bbd209
 
 # Build settings
 markdown: kramdown
