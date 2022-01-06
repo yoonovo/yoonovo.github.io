@@ -302,7 +302,48 @@
 }
 
 .category {
-  h2 {
-    // color: blue;
+  list-style: none;
+  display: block;
+  margin: 0;
+
+  .category-item {
+    margin-bottom: 20px;
+    width: calc(30% - 32px);
+    display: flex;
+    float: left;
+    flex-direction: column;
+    height: 200px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-right: 20px;
+
+    h2 {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    li {
+      line-height: 30px;
+      margin-left: 10px;
+
+      a {
+        color: #000;
+
+        &:hover {
+          color: rgb(253,170,0);
+          text-decoration: none;
+        }
+      }
+
+      &:before{
+        content: '';
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        background-image: url('/assets/post_icon.png'); 
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
   }
 }
