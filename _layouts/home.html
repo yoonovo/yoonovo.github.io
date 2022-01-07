@@ -22,7 +22,7 @@ layout: default
     <ul class="post-list">
       {%- for post in site.posts -%}
       <li>
-        <span class="post-idx">{{ forloop.index }}</span>
+        <span class="post-idx">{{ forloop.rindex }}</span>
         {%- for category in post.categories -%}
           <span class="post-category-type">{{ category }}</span>
         {%- endfor -%}
