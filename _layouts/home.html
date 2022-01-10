@@ -21,13 +21,15 @@ layout: default
     </ul>
     <ul class="post-list">
       {%- for post in site.posts -%}
-      <li>
+      <li onclick="onClickPost('{{ post.url }}')">
         <span class="post-idx">{{ forloop.rindex }}</span>
         {%- for category in post.categories -%}
-          <span class="post-category-type">{{ category }}</span>
+          <span class="post-category-type">
+            <b class="{{category}}-tag">{{ category }}</b>
+          </span>
         {%- endfor -%}
         <h3 class="post-list-title">
-          <a class="post-link" href="{{ post.url | relative_url }}">
+          <a class="post-link">
             {{ post.title | escape }}
           </a>
         </h3>
@@ -41,3 +43,9 @@ layout: default
     </ul>
   {%- endif -%}
 </div>
+
+<script>
+function onClickPost(url){
+  location.href = url;
+}
+</script>

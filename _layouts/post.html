@@ -4,6 +4,14 @@ layout: default
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
+    <div class="post-btn-box">
+      <button class="post-btn home">
+        <a href="/">Home</a>
+      </button>
+      <button class="post-btn category">
+        <a href="/category/category.html">Category</a>
+      </button>
+    </div>
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">

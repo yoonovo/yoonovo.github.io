@@ -28,6 +28,15 @@ $content-width:    800px !default;
 $on-palm:          600px !default;
 $on-laptop:        800px !default;
 
+// posts tag color
+$tag-angular: #ef476f;
+$tag-hackerrank: #06d6a0;
+$tag-javascript: #ffd166;
+$tag-github: #8338ec;
+$tag-css: #118ab2;
+$tag-git: #f77f00;
+$tag-other: #073b4c;
+
 // Use media queries like this:
 // @include media-query($on-palm) {
 //   .wrapper {
@@ -43,6 +52,11 @@ $on-laptop:        800px !default;
 
 @mixin relative-font-size($ratio) {
   font-size: $base-font-size * $ratio;
+}
+
+@mixin post-tag-color($color) {
+  color: $color;
+  border: 2px solid $color;
 }
 
 // Import partials.

@@ -69,3 +69,25 @@
   .vi    { color: #008080 } // Name.Variable.Instance
   .il    { color: #099 } // Literal.Number.Integer.Long
 }
+
+.Angular-tag {
+  @include post-tag-color($tag-angular);
+}
+.Hackerrank-tag {
+  @include post-tag-color($tag-hackerrank);
+}
+.Javascript-tag {
+  @include post-tag-color($tag-javascript);
+}
+.Github-tag {
+  @include post-tag-color($tag-github);
+}
+.Css-tag {
+  @include post-tag-color($tag-css);
+}
+.Other-tag {
+  @include post-tag-color($tag-other);
+}
+.Git-tag {
+  @include post-tag-color($tag-git);
+}
