@@ -220,6 +220,14 @@
 .post-list-heading {
   @include relative-font-size(2);
   font-family: $title-font-family;
+
+  a {
+    color: #ddd;
+
+    &.active {
+      color: #000;
+    }
+  }
 }
 
 // home 화면이 800px이하일때

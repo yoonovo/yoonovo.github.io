@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="banner"></div>
+      <div class="wrapper">
+
+        {%- if page.title -%}
+          <div>
+            <h2 class="post-list-heading">
+              <a href="/category/category.html" class="{% if page.title == 'Catergory' %}active{% endif %}">Catergory</a> / 
+              <a href="/category/posts.html" class="{% if page.title == 'Posts' %}active{% endif %}">Posts</a>
+            </h2>
+          </div>
+        {%- endif -%}
+
+        {{ content }}
+
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>
